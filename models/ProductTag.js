@@ -14,14 +14,20 @@ ProductTag.init(
       autoIncrement: true,
     },
     product_id: {
-      type: DataType.INTEGER,
-      references: 'product',
-      referencesKey: 'id'
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      reference: {
+        model: "product",
+        key: "id"
+      },
     },
     tag_id: {
-      type: DataType.INTEGER,
-      references: 'tag',
-      referencesKey: 'id'
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      reference: {
+        model: "tag",
+        key: "id",
+      },
     },
   },
   {
