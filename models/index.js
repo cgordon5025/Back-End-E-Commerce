@@ -14,16 +14,17 @@ Product.belongsTo(Category, {
 //this still calls the category_ID since it is what binds the two together
 Category.hasMany(Product, {
   foreignKey: 'category_id',
+  onDelete: "CASCADE",
 })
 // Products belongToMany Tags (through ProductTag)
 Product.belongsToMany(Tag, {
   through: ProductTag,
-  // foreignKey: "product_id"
+  foreignKey: "product_id",
 })
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(Product, {
   through: ProductTag,
-  // foreignKey: "tag_id"
+  foreignKey: "tag_id",
 })
 
 module.exports = {
