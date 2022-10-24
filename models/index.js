@@ -6,9 +6,12 @@ const ProductTag = require('./ProductTag');
 //where did this come from, type too quickly maybe?
 // const seedProducts = require('../seeds/product-seeds');
 
+//this one is the parent, because product is reliant category
+//any time there is belongs to, need onDelete condition
 // Products belongsTo Category
 Product.belongsTo(Category, {
   foreignKey: 'category_id',
+  onDelete: "CASCADE",
 })
 // Categories have many Products
 //this still calls the category_ID since it is what binds the two together
